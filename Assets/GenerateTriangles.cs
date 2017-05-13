@@ -12,22 +12,25 @@ public class GenerateTriangles : MonoBehaviour {
 				Destroy(tri);
 			}
 		}
+
 		for (int i = 0; i < 100; i++) {
 			for (int j = 0; j < 100; j++) {
 				GameObject current = (GameObject)Instantiate(Resources.Load ("Triangle"));
-				float xoffset = i * 0.66f;
+				float xoffset = i * 0.8660254f;
 				//translation
-				current.transform.Translate(-50.0f+xoffset, -50.0f+(float)j, 0.0f);
+				current.transform.Translate(-50.0f+xoffset, -50.0f+((float)j*1.5f), 0.0f);
 
 				//rotation flipping for tesselation
 				switch (i % 2) {
 				case 0:
 					current.transform.Rotate (0.0f, 0.0f, 180.0f);
+					current.transform.Translate(0.0f, 1.0f, 0.0f);
 					break;
-					default:
+				default:
 
 					break;
 				}
+
 
 				//colours
 				switch ((((j*2)%4)+i) % 4) {
